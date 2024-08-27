@@ -1,19 +1,25 @@
+from device import state
+# import device
+import time
+import datetime
 import socket
 import json
 
-# JSON formatında bir mesaj
-data = {
-    "name": "John Doe",
-    "age": 30,
-    "city": "New York"
-}
+test_p=dict
 
+data = state.devices()
+dt = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+#2024-08-27 12:34:56 INFO sda1: fstype=vfat, label=null, uuid=4A35-C66D, mountpoint=/media/linux/4A35-C66D, mounted=false, plugged=true
+#2024-08-27 12:34:56 INFO mmcblk1p1: fstype=vfat, label=null, uuid=6335-3364, mountpoint=/media/linux/6335-3364, mounted=true, plugged=true
+test_p=data
+for item in test_p: test_p [item ] ['dt'] =  dt
 # JSON mesajını string formatına dönüştür
-json_data = json.dumps(data)
+json_data = json.dumps(test_p)
 
 # Sunucu bilgileri
 host = 'localhost'  # veya sunucu IP adresi
-port = 2440
+port = 2639
 
 # TCP istemci soketini oluştur
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -32,4 +38,3 @@ try:
 finally:
     # Soketi kapat
     client_socket.close()
-
